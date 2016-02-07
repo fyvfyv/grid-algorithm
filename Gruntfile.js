@@ -85,15 +85,47 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      main: {
+      external_css: {
         expand: true,
         cwd: 'sources/css/',
         src: '**',
         dest: 'css/',
         flatten: true,
         filter: 'isFile',
+      },
+
+      build_css: {
+        expand: true,
+        cwd: 'css',
+        src: '**',
+        dest: '_build/css/',
+        flatten: true,
+        filter: 'isFile',
+      },
+
+      build_js: {
+        expand: true,
+        cwd: 'js',
+        src: '**',
+        dest: '_build/js/',
+        flatten: true,
+        filter: 'isFile',
+      },
+
+      build_index: {
+        expand: true,
+        cwd: '',
+        src: '*.html',
+        dest: '_build/',
+        flatten: true,
+        filter: 'isFile',
       }
+    },
+
+    clean: {
+      css: 'css',
+      js: 'js'
     }
   });
-  grunt.registerTask('build', ['sass', 'cmq', 'postcss', 'csscomb', 'cssmin', 'concat', 'uglify', 'copy']);
+  grunt.registerTask('build', ['sass', 'cmq', 'postcss', 'csscomb', 'cssmin', 'concat', 'uglify', 'copy', 'clean']);
 };
