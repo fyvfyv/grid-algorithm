@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Шпаргалка по сеткам (float / inline-block)</title>
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <h1 class="title">Шпаргалка по сеткам</h1>
+
+  <div class="algorithm">
+    <div class="algorithm__question algorithm__question--first">
+      Колонки в сетке расположены в одну строку?
+      <div class="algorithm__choose-answers">
+        <a href="#" id="first_ans_yes" class="algorithm__answer algorithm__answer--yes algorithm__answer--first">Да</a>
+        <a href="#" id="first_ans_no" class="algorithm__answer algorithm__answer--no algorithm__answer--first">Нет</a>
+      </div>
+    </div>
+
+    <div class="algorithm__second-step" id="second_step">
+      <div class="algorithm__question algorithm__question--no algorithm__question--second">
+        Можете ли Вы гарантировать, что высота колонок будет одинаковой и фиксированной?
+        <div class="algorithm__choose-answers">
+          <a href="#" id="no_ans_yes" class="algorithm__answer algorithm__answer--yes algorithm__answer--second">Да</a>
+          <a href="#" id="no_ans_no" class="algorithm__answer algorithm__answer--no algorithm__answer--second">Нет</a>
+        </div>
+      </div>
+
+      <div class="algorithm__question algorithm__question--yes algorithm__question--second">
+        Необходимо ли применить к колонкам вертикальное выравнивание?
+        <div class="algorithm__choose-answers">
+          <a href="#" id="yes_ans_yes" class="algorithm__answer algorithm__answer--yes algorithm__answer--second">Да</a>
+          <a href="#" id="yes_ans_no" class="algorithm__answer algorithm__answer--no algorithm__answer--second">Нет</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hints" class="hints">
+    <div id="float" class="hints__option hints__option--float">
+      <h1 class="hints__title">Float</h1>
+      Колонки:
+      <div class="hints__code">
+        float: left/right;<br>
+        width: px / %;
+      </div>
+      Родительская обертка:
+      <div class="hints__code">
+        .clearfix::after {<br>
+        &nbsp;&nbsp;content: "";<br>
+        &nbsp;&nbsp;clear: both;<br>
+        &nbsp;&nbsp;display: table;<br>
+        }
+      </div>
+    </div>
+    <div id="inline-block" class="hints__option hints__option--inline-block">
+      <h1 class="hints__title">Inline-block</h1>
+      Колонки:
+      <div class="hints__code">
+        display: inline-block;<br>
+        vertical-align: *;<br>
+        font-size: *px;
+      </div>
+      Родительская обертка:
+      <div class="hints__code">
+        font-size: 0;
+      </div>
+    </div>
+
+    <a class="reset-button" href="/" id="reset">Reset</a>
+  </div>
+
+  <address class="author">
+    Сергей Попов - HTML Academy
+  </address>
+
+  <script src="js/common.min.js"></script>
+</body>
+</html>
